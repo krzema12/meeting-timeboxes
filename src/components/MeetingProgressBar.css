@@ -1,0 +1,11 @@
+.MeetingProgressBar ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.MeetingProgressBar ol li {
+  border: 1px solid black;
+  height: 20px;
+}
