@@ -10,6 +10,7 @@ class MeetingProgressBar extends Component {
             <li style={{flexGrow: meetingPart.durationInMinutes}}></li>
           )}
         </ol>
+        <div className="currentTimeIndicator">now</div>
       </div>
     );
   }

@@ -6,6 +6,18 @@
 }
 
 .MeetingProgressBar ol li {
-  border: 1px solid black;
+  border: 1px solid green;
+  /* Compensates border size, so that the currentTimeIndicator is precise. */
+  margin: 0 -1px;
   height: 20px;
+}
+
+.MeetingProgressBar .currentTimeIndicator {
+  position: relative;
+  /* TODO hardcoded - will change as the time flows */
+  left: 40%;
+  border-left: 1px solid red;
+  padding-top: 30px;
+  padding-left: 3px;
+  margin-top: -21px;
 }
