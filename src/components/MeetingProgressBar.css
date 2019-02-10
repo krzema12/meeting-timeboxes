@@ -14,8 +14,6 @@
 
 .MeetingProgressBar .currentTimeIndicator {
   position: relative;
-  /* TODO hardcoded - will change as the time flows */
-  left: 40%;
   border-left: 1px solid red;
   padding-top: 30px;
   padding-left: 3px;

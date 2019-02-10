@@ -27,13 +27,17 @@ class App extends Component {
           durationInMinutes: 10,
         }
       ],
+      // TODO temporarily hardcoded - will change as the time flows
+      elapsedTimeInMinutes: 20,
     };
   }
 
   render() {
     return (
       <div className="App">
-        <MeetingProgressBar meetingParts={this.state.meetingParts} />
+        <MeetingProgressBar
+            meetingParts={this.state.meetingParts}
+            elapsedTimeInMinutes={this.state.elapsedTimeInMinutes} />
         <EditableAgenda meetingParts={this.state.meetingParts} />
       </div>
     );
