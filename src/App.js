@@ -32,7 +32,8 @@ class App extends Component {
         }
       ],
       // TODO temporarily hardcoded - will change as the time flows
-      elapsedTimeInMinutes: 20,
+      elapsedTimeInSeconds: 0,
+      timeCountingEnabled: false,
     };
   }
 
@@ -41,10 +42,11 @@ class App extends Component {
       <div className="App">
         <MeetingProgressBar
             meetingParts={this.state.meetingParts}
-            elapsedTimeInMinutes={this.state.elapsedTimeInMinutes} />
+            elapsedTimeInMinutes={this.state.elapsedTimeInSeconds/60} />
         <EditableAgenda
             meetingParts={this.state.meetingParts}
             onChange={this._meetingPartChanged.bind(this)} />
+            <input type="button" value="Start meeting" onClick={this._startMeeting.bind(this)} />
       </div>
     );
   }
@@ -57,6 +59,21 @@ class App extends Component {
     this.state.meetingParts[indexOfMeetingPartToChange][propertyName] = newValue;
     // TODO do not mutate state directly. I'll probably use Redux.
     this.setState(this.state);
+  }
+
+  _startMeeting() {
+    if (this.state.timeCountingEnabled === false) {
+      this._schedulePeriodicCurrentTimeMarkerUpdate();
+    }
+    this.setState({ timeCountingEnabled: true });
+  }
+
+  _schedulePeriodicCurrentTimeMarkerUpdate() {
+    setInterval(this._updateMarker.bind(this), 1000);
+  }
+
+  _updateMarker() {
+    this.setState({ elapsedTimeInSeconds: this.state.elapsedTimeInSeconds + 1 });
   }
 }
 
