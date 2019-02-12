@@ -7,7 +7,7 @@ class MeetingProgressBar extends Component {
       <div className="MeetingProgressBar">
         <ol>
           {this.props.meetingParts.map(meetingPart =>
-            <li style={{flexGrow: meetingPart.durationInMinutes}}></li>
+            <li key={meetingPart.id} style={{flexGrow: meetingPart.durationInMinutes}}></li>
           )}
         </ol>
         <div className="currentTimeIndicator"
